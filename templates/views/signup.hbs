@@ -1,0 +1,77 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+<!------ Include the above in your HEAD tag ---------->
+
+<head>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+<div class="container">
+    <div class="row">
+        <h1><i class="fa fa-lock" aria-hidden="true"></i> Signup </h1>
+    </div><br /><br />
+
+  <form action="/register" method="post"> 
+    
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fas fa-user-tie"></i></span>
+        </div>
+        <input type="text" name="username" class="form-control" placeholder="username " />
+    </div><br/>
+
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fas fa-user-tie"></i></span>
+        </div>
+        <input type="text" name="email" class="form-control" placeholder="email" />
+    </div><br />
+
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fa fa-key icon"></i></span>
+        </div>
+        <input type="Password" name="password" class="form-control" placeholder="password" />
+    </div><br />
+   
+       <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fa fa-key icon"></i></span>
+        </div>
+        <input type="Password" name="cpassword" class="form-control" placeholder=" confirm password" />
+    </div><br />
+   
+
+    <div class="checkbox">
+        <label><input type="checkbox" value=""/> Remember me</label>
+    </div><br />
+    <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span> Signup</button>
+
+  </form>
+
+    <div class="footer">
+        <p> <a href="/">Sign in </a></p>
+        <p>Forgot <a href="#">Password?</a></p>
+    </div>
+
+</div>
+
+
+<script>
+    if("{{warning}}"){
+        swal("Oops!", "  email already registered!  ", "error");
+    }
+    if("{{pass_match}}"){
+        swal("Oops!", "  passwords do not match !", "error");
+         
+    }
+    
+    if("{{adminalert}}"){
+        swal("Oops!", " You can't add user as admin ", "error");
+    }
+
+
+</script>

@@ -1,0 +1,104 @@
+<html>
+	<head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<link rel="stylesheet" type="text/css" href="dashboard.css"> </link> 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/brands.min.css" integrity="sha512-sVSECYdnRMezwuq5uAjKQJEcu2wybeAPjU4VJQ9pCRcCY4pIpIw4YMHIOQ0CypfwHRvdSPbH++dA3O4Hihm/LQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand ml-2" href="#">{{#each all_data}} {{this.content_writer}}  {{/each}}</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">{{#each all_data}} {{this.email}}  {{/each}}<span class="sr-only"> </span></a>
+      </li>
+       
+      <li class="nav-item">
+        <a class="nav-link  btn btn-sm btn-light" href="/logout">Log out</a>
+      </li>
+    </ul>
+  
+  </div>
+</nav>
+<div class="container" id="create_form">
+  <a class="btn btn-primary btn-sm " data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+     Create blog <i class="fas fa-caret-down"></i> 
+ </a>
+<div class="collapse" id="collapseExample">
+  
+     <div>
+  <form action="/articles?content_writer={{#each all_data}} {{this.content_writer}} {{/each}}&id={{#each all_data}} {{this._id}} {{/each}}" method="post" >
+  <div class="form-group">
+    <label for="exampleInputEmail1">Title</label>
+    <textarea type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Title" required > </textarea>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Content</label>
+    <textarea required type="text" class="form-control"  placeholder="Password"> </textarea>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Dsicription</label>
+    <textarea  required  type="text" class="form-control"  placeholder="Password"> </textarea>
+  </div><br>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</div>
+</div> 
+
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md ">
+      <h3> Writer </h3> 
+    </div>
+    <div class="col-md">
+      <h3> Content </h3>
+    </div>
+    <div class="col-md">
+      
+    </div>
+  </div>
+</div>
+
+{{#each all_users_data}} 
+<div class="container all_users_data">
+  <div class="row">
+    <div class="col-md">
+      {{this.content_writer}}      
+    </div>
+    <div class="col-md">
+           <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+             Beatae, ad maxime? Accusantium, atque quos itaque laboriosam modi rerum maxime voluptatem eligendi autem. </p>  
+
+    </div>
+    <div class="col-md">
+             <a href="" class="btn btn-sm btn-danger" id="{{this._id}}">delete </a>
+  
+    </div>
+  </div>
+</div>
+{{/each}}
+
+
+
+
+  </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+																																										
