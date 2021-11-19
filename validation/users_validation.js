@@ -207,10 +207,7 @@ router.post('/articles', async(req, res) => {
 })
 
 
-// henerating jwt toke 
-
-
-
+// generating jwt toke 
 
 
 // ------------user signin -------------------
